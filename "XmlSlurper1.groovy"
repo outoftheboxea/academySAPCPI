@@ -1,0 +1,18 @@
+import com.sap.gateway.ip.core.customdev.util.Message;
+import groovy.xml.*;
+
+def Message processData(Message message) {
+  def body = message.getBody(String)
+  def xml = new XmlSlurper().parseText(body)
+  def customerId = xml.customer.id.text()
+  message.setProperty("CustomerID", customerId)
+  return message
+}
+
+/*
+<order>
+  <customer>
+    <id>12345</id>
+  </customer>
+</order>
+*/

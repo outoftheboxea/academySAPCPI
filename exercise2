@@ -1,0 +1,16 @@
+import com.sap.gateway.ip.core.customdev.util.Message
+import com.sap.gateway.ip.core.customdev.util.MessageLog
+
+def Message processData(Message message) {
+    // Get the Tracking ID property
+    def trackingId = message.getProperty("TrackingID")
+
+    // Access the message log via the script binding context
+    def messageLog = messageLogFactory.getMessageLog(message)
+
+    if (messageLog != null && trackingId != null) {
+        messageLog.setStringProperty("Tracking Info", "Tracking ID: ${trackingId}")
+    }
+
+    return message
+}
