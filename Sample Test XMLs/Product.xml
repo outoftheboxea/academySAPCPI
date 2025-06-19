@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Product xmlns="www.outoftheboxacademy.com">
+    <ProductID>PROD-56789</ProductID>
+    <ProductName>Wireless Headphones</ProductName>
+    <Category>Electronics</Category>
+    <UnitPrice>99.99</UnitPrice>
+    <Currency>USD</Currency>
+    <StockQuantity>500</StockQuantity>
+    <SupplierID>SUP-1001</SupplierID>
+</Product>

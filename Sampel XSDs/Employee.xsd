@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+           targetNamespace="www.outoftheboxacademy.com"
+           xmlns="www.outoftheboxacademy.com"
+           elementFormDefault="qualified">
+
+    <xs:element name="Employee">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="EmployeeID" type="xs:string"/>
+                <xs:element name="FirstName" type="xs:string"/>
+                <xs:element name="LastName" type="xs:string"/>
+                <xs:element name="JobTitle" type="xs:string"/>
+                <xs:element name="Department" type="xs:string"/>
+                <xs:element name="HireDate" type="xs:date"/>
+                <xs:element name="Salary" type="xs:decimal"/>
+                <xs:element name="Currency" type="xs:string"/>
+                <xs:element name="Email" type="xs:string"/>
+                <xs:element name="Phone" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

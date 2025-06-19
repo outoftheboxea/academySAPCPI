@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Material xmlns="www.outoftheboxacademy.com">
+    <MaterialID>MATERIAL-12345</MaterialID>
+    <MaterialDescription>High-Quality Steel Rod</MaterialDescription>
+    <MaterialType>Raw Material</MaterialType>
+    <BaseUnit>KG</BaseUnit>
+    <GrossWeight>100.5</GrossWeight>
+    <NetWeight>98.2</NetWeight>
+    <WeightUnit>KG</WeightUnit>
+    <Volume>2.5</Volume>
+    <VolumeUnit>CUBIC_METER</VolumeUnit>
+</Material>

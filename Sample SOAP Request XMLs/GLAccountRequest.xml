@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:tns="www.outoftheboxacademy.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:GLAccountRequest>
+            <GLAccountID>GL-450000</GLAccountID>
+        </tns:GLAccountRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="CustomerRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CustomerID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="CustomerResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CustomerID" type="xsd:string"/>
+                        <xsd:element name="CustomerName" type="xsd:string"/>
+                        <xsd:element name="Country" type="xsd:string"/>
+                        <xsd:element name="City" type="xsd:string"/>
+                        <xsd:element name="Email" type="xsd:string"/>
+                        <xsd:element name="PhoneNumber" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="CustomerRequestMessage">
+        <wsdl:part name="parameters" element="tns:CustomerRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="CustomerResponseMessage">
+        <wsdl:part name="parameters" element="tns:CustomerResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CustomerPortType">
+        <wsdl:operation name="GetCustomer">
+            <wsdl:input message="tns:CustomerRequestMessage"/>
+            <wsdl:output message="tns:CustomerResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CustomerBinding" type="tns:CustomerPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCustomer">
+            <soap:operation soapAction="GetCustomer"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="CustomerService">
+        <wsdl:port name="CustomerPort" binding="tns:CustomerBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/CustomerService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

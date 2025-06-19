@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="CostCenterRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CostCenterID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="CostCenterResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CostCenterID" type="xsd:string"/>
+                        <xsd:element name="CostCenterName" type="xsd:string"/>
+                        <xsd:element name="CompanyCode" type="xsd:string"/>
+                        <xsd:element name="ResponsiblePerson" type="xsd:string"/>
+                        <xsd:element name="ValidFrom" type="xsd:date"/>
+                        <xsd:element name="ValidTo" type="xsd:date"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="CostCenterRequestMessage">
+        <wsdl:part name="parameters" element="tns:CostCenterRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="CostCenterResponseMessage">
+        <wsdl:part name="parameters" element="tns:CostCenterResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CostCenterPortType">
+        <wsdl:operation name="GetCostCenter">
+            <wsdl:input message="tns:CostCenterRequestMessage"/>
+            <wsdl:output message="tns:CostCenterResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CostCenterBinding" type="tns:CostCenterPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCostCenter">
+            <soap:operation soapAction="GetCostCenter"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="CostCenterService">
+        <wsdl:port name="CostCenterPort" binding="tns:CostCenterBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/CostCenterService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

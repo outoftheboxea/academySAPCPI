@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="EmployeeRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EmployeeID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="EmployeeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="EmployeeID" type="xsd:string"/>
+                        <xsd:element name="FirstName" type="xsd:string"/>
+                        <xsd:element name="LastName" type="xsd:string"/>
+                        <xsd:element name="JobTitle" type="xsd:string"/>
+                        <xsd:element name="Department" type="xsd:string"/>
+                        <xsd:element name="HireDate" type="xsd:date"/>
+                        <xsd:element name="Salary" type="xsd:decimal"/>
+                        <xsd:element name="Currency" type="xsd:string"/>
+                        <xsd:element name="Email" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="EmployeeRequestMessage">
+        <wsdl:part name="parameters" element="tns:EmployeeRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="EmployeeResponseMessage">
+        <wsdl:part name="parameters" element="tns:EmployeeResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="EmployeePortType">
+        <wsdl:operation name="GetEmployee">
+            <wsdl:input message="tns:EmployeeRequestMessage"/>
+            <wsdl:output message="tns:EmployeeResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="EmployeeBinding" type="tns:EmployeePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetEmployee">
+            <soap:operation soapAction="GetEmployee"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="EmployeeService">
+        <wsdl:port name="EmployeePort" binding="tns:EmployeeBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/EmployeeService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BusinessPartner xmlns="www.outoftheboxacademy.com">
+    <BusinessPartnerID>BP-99999</BusinessPartnerID>
+    <BusinessPartnerName>ABC Logistics Ltd.</BusinessPartnerName>
+    <BusinessPartnerType>Supplier</BusinessPartnerType>
+    <Country>DE</Country>
+    <City>Berlin</City>
+    <PostalCode>10115</PostalCode>
+    <Street>Wilhelmstr. 50</Street>
+    <PhoneNumber>+49-30-123456</PhoneNumber>
+    <Email>info@abc-logistics.de</Email>
+</BusinessPartner>

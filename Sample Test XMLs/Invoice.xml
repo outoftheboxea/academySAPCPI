@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Invoice xmlns="www.outoftheboxacademy.com">
+    <InvoiceID>INV-20240215-001</InvoiceID>
+    <SalesOrderID>SO-20240215-001</SalesOrderID>
+    <InvoiceDate>2024-02-16</InvoiceDate>
+    <TotalAmount>2500.00</TotalAmount>
+    <Currency>USD</Currency>
+    <PaymentStatus>Paid</PaymentStatus>
+</Invoice>

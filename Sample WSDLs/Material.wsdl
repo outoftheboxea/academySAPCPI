@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="MaterialRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="MaterialID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="MaterialResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="MaterialID" type="xsd:string"/>
+                        <xsd:element name="MaterialDescription" type="xsd:string"/>
+                        <xsd:element name="MaterialType" type="xsd:string"/>
+                        <xsd:element name="BaseUnit" type="xsd:string"/>
+                        <xsd:element name="GrossWeight" type="xsd:decimal"/>
+                        <xsd:element name="NetWeight" type="xsd:decimal"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="MaterialRequestMessage">
+        <wsdl:part name="parameters" element="tns:MaterialRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="MaterialResponseMessage">
+        <wsdl:part name="parameters" element="tns:MaterialResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="MaterialPortType">
+        <wsdl:operation name="GetMaterial">
+            <wsdl:input message="tns:MaterialRequestMessage"/>
+            <wsdl:output message="tns:MaterialResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="MaterialBinding" type="tns:MaterialPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetMaterial">
+            <soap:operation soapAction="GetMaterial"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="MaterialService">
+        <wsdl:port name="MaterialPort" binding="tns:MaterialBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/MaterialService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

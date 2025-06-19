@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="BusinessPartnerRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="BusinessPartnerID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="BusinessPartnerResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="BusinessPartnerID" type="xsd:string"/>
+                        <xsd:element name="BusinessPartnerName" type="xsd:string"/>
+                        <xsd:element name="Country" type="xsd:string"/>
+                        <xsd:element name="City" type="xsd:string"/>
+                        <xsd:element name="Email" type="xsd:string"/>
+                        <xsd:element name="PhoneNumber" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="BusinessPartnerRequestMessage">
+        <wsdl:part name="parameters" element="tns:BusinessPartnerRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="BusinessPartnerResponseMessage">
+        <wsdl:part name="parameters" element="tns:BusinessPartnerResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="BusinessPartnerPortType">
+        <wsdl:operation name="GetBusinessPartner">
+            <wsdl:input message="tns:BusinessPartnerRequestMessage"/>
+            <wsdl:output message="tns:BusinessPartnerResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="BusinessPartnerBinding" type="tns:BusinessPartnerPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetBusinessPartner">
+            <soap:operation soapAction="GetBusinessPartner"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="BusinessPartnerService">
+        <wsdl:port name="BusinessPartnerPort" binding="tns:BusinessPartnerBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/BusinessPartnerService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

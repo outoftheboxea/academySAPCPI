@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Employee xmlns="www.outoftheboxacademy.com">
+    <EmployeeID>EMP-1005</EmployeeID>
+    <FirstName>Jane</FirstName>
+    <LastName>Smith</LastName>
+    <JobTitle>Senior Software Engineer</JobTitle>
+    <Department>IT</Department>
+    <HireDate>2015-06-15</HireDate>
+    <Salary>85000.00</Salary>
+    <Currency>USD</Currency>
+    <Email>jane.smith@company.com</Email>
+    <Phone>+1-555-987-6543</Phone>
+</Employee>

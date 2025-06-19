@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="GLAccountRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="GLAccountID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="GLAccountResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="GLAccountID" type="xsd:string"/>
+                        <xsd:element name="GLAccountName" type="xsd:string"/>
+                        <xsd:element name="CompanyCode" type="xsd:string"/>
+                        <xsd:element name="AccountType" type="xsd:string"/>
+                        <xsd:element name="Currency" type="xsd:string"/>
+                        <xsd:element name="Balance" type="xsd:decimal"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="GLAccountRequestMessage">
+        <wsdl:part name="parameters" element="tns:GLAccountRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="GLAccountResponseMessage">
+        <wsdl:part name="parameters" element="tns:GLAccountResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="GLAccountPortType">
+        <wsdl:operation name="GetGLAccount">
+            <wsdl:input message="tns:GLAccountRequestMessage"/>
+            <wsdl:output message="tns:GLAccountResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="GLAccountBinding" type="tns:GLAccountPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetGLAccount">
+            <soap:operation soapAction="GetGLAccount"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="GLAccountService">
+        <wsdl:port name="GLAccountPort" binding="tns:GLAccountBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/GLAccountService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:tns="www.outoftheboxacademy.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:BusinessPartnerRequest>
+            <BusinessPartnerID>BP-99999</BusinessPartnerID>
+        </tns:BusinessPartnerRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

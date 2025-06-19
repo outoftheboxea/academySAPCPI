@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="SupplierRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SupplierID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="SupplierResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="SupplierID" type="xsd:string"/>
+                        <xsd:element name="SupplierName" type="xsd:string"/>
+                        <xsd:element name="Country" type="xsd:string"/>
+                        <xsd:element name="City" type="xsd:string"/>
+                        <xsd:element name="Email" type="xsd:string"/>
+                        <xsd:element name="PhoneNumber" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="SupplierRequestMessage">
+        <wsdl:part name="parameters" element="tns:SupplierRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="SupplierResponseMessage">
+        <wsdl:part name="parameters" element="tns:SupplierResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="SupplierPortType">
+        <wsdl:operation name="GetSupplier">
+            <wsdl:input message="tns:SupplierRequestMessage"/>
+            <wsdl:output message="tns:SupplierResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SupplierBinding" type="tns:SupplierPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetSupplier">
+            <soap:operation soapAction="GetSupplier"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="SupplierService">
+        <wsdl:port name="SupplierPort" binding="tns:SupplierBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/SupplierService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

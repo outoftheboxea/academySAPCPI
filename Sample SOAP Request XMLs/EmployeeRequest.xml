@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:tns="www.outoftheboxacademy.com">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <tns:EmployeeRequest>
+            <EmployeeID>EMP-1005</EmployeeID>
+        </tns:EmployeeRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

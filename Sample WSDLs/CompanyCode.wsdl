@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:tns="www.outoftheboxacademy.com"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  targetNamespace="www.outoftheboxacademy.com">
+
+    <wsdl:types>
+        <xsd:schema targetNamespace="www.outoftheboxacademy.com">
+            <xsd:element name="CompanyCodeRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CompanyCodeID" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="CompanyCodeResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="CompanyCodeID" type="xsd:string"/>
+                        <xsd:element name="CompanyName" type="xsd:string"/>
+                        <xsd:element name="Currency" type="xsd:string"/>
+                        <xsd:element name="Country" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="CompanyCodeRequestMessage">
+        <wsdl:part name="parameters" element="tns:CompanyCodeRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="CompanyCodeResponseMessage">
+        <wsdl:part name="parameters" element="tns:CompanyCodeResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CompanyCodePortType">
+        <wsdl:operation name="GetCompanyCode">
+            <wsdl:input message="tns:CompanyCodeRequestMessage"/>
+            <wsdl:output message="tns:CompanyCodeResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CompanyCodeBinding" type="tns:CompanyCodePortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="GetCompanyCode">
+            <soap:operation soapAction="GetCompanyCode"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="CompanyCodeService">
+        <wsdl:port name="CompanyCodePort" binding="tns:CompanyCodeBinding">
+            <soap:address location="http://www.outoftheboxacademy.com/CompanyCodeService"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Customer xmlns="www.outoftheboxacademy.com">
+    <CustomerID>100001</CustomerID>
+    <CustomerName>John Doe Enterprises</CustomerName>
+    <Country>US</Country>
+    <Region>California</Region>
+    <City>Los Angeles</City>
+    <PostalCode>90001</PostalCode>
+    <Street>123 Business Ave</Street>
+    <PhoneNumber>+1-555-123-4567</PhoneNumber>
+    <Email>contact@johndoe.com</Email>
+    <CustomerType>Corporate</CustomerType>
+</Customer>

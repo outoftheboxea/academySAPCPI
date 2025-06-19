@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SalesOrder xmlns="www.outoftheboxacademy.com">
+    <SalesOrderID>SO-20240215-001</SalesOrderID>
+    <CustomerID>100001</CustomerID>
+    <OrderDate>2024-02-15</OrderDate>
+    <TotalAmount>2500.00</TotalAmount>
+    <Currency>USD</Currency>
+    <OrderStatus>Confirmed</OrderStatus>
+    <Items>
+        <MaterialID>MATERIAL-12345</MaterialID>
+        <Quantity>10</Quantity>
+        <UnitPrice>250.00</UnitPrice>
+    </Items>
+</SalesOrder>
