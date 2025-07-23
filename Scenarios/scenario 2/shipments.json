@@ -1,0 +1,21 @@
+{
+  "Shipments": {
+    "Order": [
+      {
+        "ID": "ORD001",
+        "Region": "EU",
+        "Quantity": 10
+      },
+      {
+        "ID": "ORD002",
+        "Region": "US",
+        "Quantity": 0
+      },
+      {
+        "ID": "ORD003",
+        "Region": "EU",
+        "Quantity": 5
+      }
+    ]
+  }
+}

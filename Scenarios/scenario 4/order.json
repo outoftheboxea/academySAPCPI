@@ -1,0 +1,21 @@
+{
+  "Order": {
+    "OrderID": "SO789",
+    "CustomerID": "CUST202",
+    "Region": "EU",
+    "Items": [
+      {
+        "ProductID": "P1001",
+        "Quantity": 3,
+        "UnitPrice": 150
+      },
+      {
+        "ProductID": "P2002",
+        "Quantity": 1,
+        "UnitPrice": 300
+      }
+    ],
+    "Currency": "EUR",
+    "OrderDate": "2025-07-16"
+  }
+}

@@ -1,0 +1,17 @@
+<Feedbacks>
+  <Entry>
+    <CustomerID>C001</CustomerID>
+    <Rating>5</Rating>
+    <Comment>Excellent service</Comment>
+  </Entry>
+  <Entry>
+    <CustomerID>C002</CustomerID>
+    <Rating>3</Rating>
+    <Comment></Comment>
+  </Entry>
+  <Entry>
+    <CustomerID>C003</CustomerID>
+    <Rating>4</Rating>
+    <Comment>Very satisfied</Comment>
+  </Entry>
+</Feedbacks>
