@@ -1,0 +1,17 @@
+<Order>
+  <OrderID>12345</OrderID>
+  <Customer>
+    <Name>John Doe</Name>
+    <Email>john.doe@example.com</Email>
+  </Customer>
+  <Items>
+    <Item>
+      <Product>Widget A</Product>
+      <Quantity>2</Quantity>
+    </Item>
+    <Item>
+      <Product>Widget B</Product>
+      <Quantity>5</Quantity>
+    </Item>
+  </Items>
+</Order>
