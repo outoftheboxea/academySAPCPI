@@ -15,3 +15,13 @@ def Message processData(Message message) {
 
     return message
 }
+
+Properties Map<String,Object>
+
+<trackingId,12345A>
+<Name,Prasad>
+<ID,12345A-1234>
+
+message.getProperty("trackingId") = 12345A = ${trackingId}
+message.getProperty("ID") = 12345A-1234
+
