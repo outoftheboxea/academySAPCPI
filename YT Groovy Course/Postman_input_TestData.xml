@@ -1,0 +1,32 @@
+  <Employees>
+    <Employee>
+        <EMP_ID>100</EMP_ID>
+        <EMP_NAME>John</EMP_NAME>
+        <MGR_ID></MGR_ID>
+        <ROLE>CEO</ROLE>
+    </Employee>
+    <Employee>
+        <EMP_ID>200</EMP_ID>
+        <EMP_NAME>Alice</EMP_NAME>
+        <MGR_ID>100</MGR_ID>
+        <ROLE>Director</ROLE>
+    </Employee>
+    <Employee>
+        <EMP_ID>300</EMP_ID>
+        <EMP_NAME>Bob</EMP_NAME>
+        <MGR_ID>200</MGR_ID>
+        <ROLE>Manager</ROLE>
+    </Employee>
+    <Employee>
+        <EMP_ID>400</EMP_ID>
+        <EMP_NAME>Prasad</EMP_NAME>
+        <MGR_ID>300</MGR_ID>
+        <ROLE>Team Lead</ROLE>
+    </Employee>
+     <Employee>
+        <EMP_ID>500</EMP_ID>
+        <EMP_NAME>OutOfTheBoxEA</EMP_NAME>
+        <MGR_ID>400</MGR_ID>
+        <ROLE>SAP CPI Developer</ROLE>
+    </Employee>
+</Employees>
